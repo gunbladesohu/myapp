@@ -10,9 +10,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161127005350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "confidence_ratings", force: :cascade do |t|
+    t.string   "confidence_level"
+    t.string   "reason"
+    t.string   "rater"
+    t.datetime "insertTime"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "credibility_ratings", force: :cascade do |t|
+    t.string   "credibility_level"
+    t.string   "reason"
+    t.string   "rater"
+    t.datetime "insertTime"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "evidence_items", force: :cascade do |t|
+    t.string   "context_how"
+    t.string   "context_why"
+    t.string   "context_who"
+    t.string   "context_what"
+    t.string   "context_where"
+    t.string   "context_when"
+    t.string   "benefit"
+    t.string   "result"
+    t.datetime "insertTime"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "evidence_sources", force: :cascade do |t|
+    t.string   "bib_ref"
+    t.string   "research_level"
+    t.datetime "insertTime"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "method_sdms", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "insertTime"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "methodologies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "insertTime"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "research_designs", force: :cascade do |t|
+    t.string   "question"
+    t.string   "method"
+    t.string   "metrics"
+    t.string   "participants"
+    t.datetime "insertTime"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
 end
