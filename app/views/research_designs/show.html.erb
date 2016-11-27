@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @research_design.question %>
+</p>
+
+<p>
+  <strong>Method:</strong>
+  <%= @research_design.method %>
+</p>
+
+<p>
+  <strong>Metrics:</strong>
+  <%= @research_design.metrics %>
+</p>
+
+<p>
+  <strong>Participants:</strong>
+  <%= @research_design.participants %>
+</p>
+
+<p>
+  <strong>Inserttime:</strong>
+  <%= @research_design.insertTime %>
+</p>
+
+<%= link_to 'Edit', edit_research_design_path(@research_design) %> |
+<%= link_to 'Back', research_designs_path %>

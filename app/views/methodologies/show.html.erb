@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @methodology.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @methodology.description %>
+</p>
+
+<p>
+  <strong>Inserttime:</strong>
+  <%= @methodology.insertTime %>
+</p>
+
+<%= link_to 'Edit', edit_methodology_path(@methodology) %> |
+<%= link_to 'Back', methodologies_path %>

@@ -1,0 +1,1 @@
+json.partial! "confidence_ratings/confidence_rating", confidence_rating: @confidence_rating

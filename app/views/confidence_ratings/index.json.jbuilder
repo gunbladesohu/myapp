@@ -1,0 +1,1 @@
+json.array! @confidence_ratings, partial: 'confidence_ratings/confidence_rating', as: :confidence_rating

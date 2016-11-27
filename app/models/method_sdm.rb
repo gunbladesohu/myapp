@@ -1,0 +1,2 @@
+class MethodSdm < ApplicationRecord
+end

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  context_how: MyString
+  context_why: MyString
+  context_who: MyString
+  context_what: MyString
+  context_where: MyString
+  context_when: MyString
+  benefit: MyString
+  result: MyString
+  insertTime: 2016-11-27 00:53:09
+
+two:
+  context_how: MyString
+  context_why: MyString
+  context_who: MyString
+  context_what: MyString
+  context_where: MyString
+  context_when: MyString
+  benefit: MyString
+  result: MyString
+  insertTime: 2016-11-27 00:53:09

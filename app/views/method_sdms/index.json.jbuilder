@@ -1,0 +1,1 @@
+json.array! @method_sdms, partial: 'method_sdms/method_sdm', as: :method_sdm

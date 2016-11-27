@@ -1,0 +1,37 @@
+<%= form_for(confidence_rating) do |f| %>
+  <% if confidence_rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(confidence_rating.errors.count, "error") %> prohibited this confidence_rating from being saved:</h2>
+
+      <ul>
+      <% confidence_rating.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :confidence_level %>
+    <%= f.text_field :confidence_level %>
+  </div>
+
+  <div class="field">
+    <%= f.label :reason %>
+    <%= f.text_field :reason %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rater %>
+    <%= f.text_field :rater %>
+  </div>
+
+  <div class="field">
+    <%= f.label :insertTime %>
+    <%= f.datetime_select :insertTime %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

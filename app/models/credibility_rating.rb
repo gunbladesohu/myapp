@@ -1,0 +1,2 @@
+class CredibilityRating < ApplicationRecord
+end

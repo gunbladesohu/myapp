@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Credibility level:</strong>
+  <%= @credibility_rating.credibility_level %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @credibility_rating.reason %>
+</p>
+
+<p>
+  <strong>Rater:</strong>
+  <%= @credibility_rating.rater %>
+</p>
+
+<p>
+  <strong>Inserttime:</strong>
+  <%= @credibility_rating.insertTime %>
+</p>
+
+<%= link_to 'Edit', edit_credibility_rating_path(@credibility_rating) %> |
+<%= link_to 'Back', credibility_ratings_path %>

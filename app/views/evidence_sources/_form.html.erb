@@ -1,0 +1,32 @@
+<%= form_for(evidence_source) do |f| %>
+  <% if evidence_source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evidence_source.errors.count, "error") %> prohibited this evidence_source from being saved:</h2>
+
+      <ul>
+      <% evidence_source.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bib_ref %>
+    <%= f.text_field :bib_ref %>
+  </div>
+
+  <div class="field">
+    <%= f.label :research_level %>
+    <%= f.text_field :research_level %>
+  </div>
+
+  <div class="field">
+    <%= f.label :insertTime %>
+    <%= f.datetime_select :insertTime %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

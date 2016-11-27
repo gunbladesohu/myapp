@@ -1,0 +1,2 @@
+module ConfidenceRatingsHelper
+end

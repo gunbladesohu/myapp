@@ -1,0 +1,37 @@
+<%= form_for(credibility_rating) do |f| %>
+  <% if credibility_rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(credibility_rating.errors.count, "error") %> prohibited this credibility_rating from being saved:</h2>
+
+      <ul>
+      <% credibility_rating.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :credibility_level %>
+    <%= f.text_field :credibility_level %>
+  </div>
+
+  <div class="field">
+    <%= f.label :reason %>
+    <%= f.text_field :reason %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rater %>
+    <%= f.text_field :rater %>
+  </div>
+
+  <div class="field">
+    <%= f.label :insertTime %>
+    <%= f.datetime_select :insertTime %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

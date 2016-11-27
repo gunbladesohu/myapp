@@ -1,0 +1,62 @@
+<%= form_for(evidence_item) do |f| %>
+  <% if evidence_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evidence_item.errors.count, "error") %> prohibited this evidence_item from being saved:</h2>
+
+      <ul>
+      <% evidence_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :context_how %>
+    <%= f.text_field :context_how %>
+  </div>
+
+  <div class="field">
+    <%= f.label :context_why %>
+    <%= f.text_field :context_why %>
+  </div>
+
+  <div class="field">
+    <%= f.label :context_who %>
+    <%= f.text_field :context_who %>
+  </div>
+
+  <div class="field">
+    <%= f.label :context_what %>
+    <%= f.text_field :context_what %>
+  </div>
+
+  <div class="field">
+    <%= f.label :context_where %>
+    <%= f.text_field :context_where %>
+  </div>
+
+  <div class="field">
+    <%= f.label :context_when %>
+    <%= f.text_field :context_when %>
+  </div>
+
+  <div class="field">
+    <%= f.label :benefit %>
+    <%= f.text_field :benefit %>
+  </div>
+
+  <div class="field">
+    <%= f.label :result %>
+    <%= f.text_field :result %>
+  </div>
+
+  <div class="field">
+    <%= f.label :insertTime %>
+    <%= f.datetime_select :insertTime %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

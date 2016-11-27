@@ -1,0 +1,42 @@
+<%= form_for(research_design) do |f| %>
+  <% if research_design.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(research_design.errors.count, "error") %> prohibited this research_design from being saved:</h2>
+
+      <ul>
+      <% research_design.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :question %>
+    <%= f.text_field :question %>
+  </div>
+
+  <div class="field">
+    <%= f.label :method %>
+    <%= f.text_field :method %>
+  </div>
+
+  <div class="field">
+    <%= f.label :metrics %>
+    <%= f.text_field :metrics %>
+  </div>
+
+  <div class="field">
+    <%= f.label :participants %>
+    <%= f.text_field :participants %>
+  </div>
+
+  <div class="field">
+    <%= f.label :insertTime %>
+    <%= f.datetime_select :insertTime %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

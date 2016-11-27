@@ -1,0 +1,1 @@
+json.partial! "evidence_sources/evidence_source", evidence_source: @evidence_source

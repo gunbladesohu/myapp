@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  confidence_level: MyString
+  reason: MyString
+  rater: MyString
+  insertTime: 2016-11-27 00:53:40
+
+two:
+  confidence_level: MyString
+  reason: MyString
+  rater: MyString
+  insertTime: 2016-11-27 00:53:40

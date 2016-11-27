@@ -1,0 +1,2 @@
+module MethodSdmsHelper
+end

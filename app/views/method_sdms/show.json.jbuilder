@@ -1,0 +1,1 @@
+json.partial! "method_sdms/method_sdm", method_sdm: @method_sdm

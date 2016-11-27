@@ -1,0 +1,2 @@
+class ConfidenceRating < ApplicationRecord
+end

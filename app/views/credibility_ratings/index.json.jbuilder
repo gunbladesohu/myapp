@@ -1,0 +1,1 @@
+json.array! @credibility_ratings, partial: 'credibility_ratings/credibility_rating', as: :credibility_rating

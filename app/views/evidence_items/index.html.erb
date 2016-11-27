@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Evidence Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Context how</th>
+      <th>Context why</th>
+      <th>Context who</th>
+      <th>Context what</th>
+      <th>Context where</th>
+      <th>Context when</th>
+      <th>Benefit</th>
+      <th>Result</th>
+      <th>Inserttime</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evidence_items.each do |evidence_item| %>
+      <tr>
+        <td><%= evidence_item.context_how %></td>
+        <td><%= evidence_item.context_why %></td>
+        <td><%= evidence_item.context_who %></td>
+        <td><%= evidence_item.context_what %></td>
+        <td><%= evidence_item.context_where %></td>
+        <td><%= evidence_item.context_when %></td>
+        <td><%= evidence_item.benefit %></td>
+        <td><%= evidence_item.result %></td>
+        <td><%= evidence_item.insertTime %></td>
+        <td><%= link_to 'Show', evidence_item %></td>
+        <td><%= link_to 'Edit', edit_evidence_item_path(evidence_item) %></td>
+        <td><%= link_to 'Destroy', evidence_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evidence Item', new_evidence_item_path %>

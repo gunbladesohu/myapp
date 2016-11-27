@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyString
+  method: MyString
+  metrics: MyString
+  participants: MyString
+  insertTime: 2016-11-27 00:53:50
+
+two:
+  question: MyString
+  method: MyString
+  metrics: MyString
+  participants: MyString
+  insertTime: 2016-11-27 00:53:50

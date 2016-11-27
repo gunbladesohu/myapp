@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Confidence level:</strong>
+  <%= @confidence_rating.confidence_level %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @confidence_rating.reason %>
+</p>
+
+<p>
+  <strong>Rater:</strong>
+  <%= @confidence_rating.rater %>
+</p>
+
+<p>
+  <strong>Inserttime:</strong>
+  <%= @confidence_rating.insertTime %>
+</p>
+
+<%= link_to 'Edit', edit_confidence_rating_path(@confidence_rating) %> |
+<%= link_to 'Back', confidence_ratings_path %>
