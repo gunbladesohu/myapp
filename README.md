@@ -27,3 +27,4 @@ Things you may want to cover:
 * change something2
 * change something3
 * change something4
+* something for common layout
