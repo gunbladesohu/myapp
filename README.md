@@ -28,3 +28,4 @@ Things you may want to cover:
 * change something3
 * change something4
 * something for common layout
+* * something for common layout
