@@ -1,3 +1,11 @@
+language: ruby
+rvm:
+- 2.3.0
+notification:
+  email: false
+script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
 deploy:
   provider: heroku
   api_key:
