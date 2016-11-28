@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'static_pages/home'
+
+  get 'static_pages/help'
+
   resources :research_designs
   resources :confidence_ratings
   resources :credibility_ratings
