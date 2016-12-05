@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)      
       log_in user
-      remember user
-      redirect_to user
+      redirect_back_or user
     else
       # Create an error message.
       flash.now[:danger] = 'Invalid email/password combination'
@@ -18,7 +17,6 @@ class SessionsController < ApplicationController
   
   def destroy
     log_out if logged_in?
-    log_out
     redirect_to root_url
   end  
 end
