@@ -14,8 +14,7 @@ deploy:
   on:
     repo: gunbladesohu/myapp
   run:
-
-    - "rake db:drop  DISABLE_DATABASE_ENVIRONMENT_CHECK=1"
+    - "rake db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1"
     - "rake db:create"
     - "rake db:reset"
     - "rake db:migrate"
