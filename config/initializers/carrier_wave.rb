@@ -13,7 +13,6 @@ CarrierWave.configure do |config|
     :provider              => 'AWS',
     :aws_access_key_id     => '11111111',
     :aws_secret_access_key => '11111111',
-    :region                => 'Oregen'
   }
 
   # For testing, upload files to local `tmp` folder.
