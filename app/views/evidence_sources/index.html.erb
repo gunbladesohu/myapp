@@ -5,9 +5,17 @@
 <table>
   <thead>
     <tr>
-      <th>Bib ref</th>
-      <th>Research level</th>
-      <th>Inserttime</th>
+      <th>page_numbers</th>
+      <th>DOI</th>
+      <th>publisher</th>
+      <th>journal_book</th>
+      <th>publisher</th>
+      <th>source</th>
+      <th>author</th>
+      <th>title</th>
+      <th>rating</th>
+      <th>research_level</th>
+      <th>insertTime</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +23,14 @@
   <tbody>
     <% @evidence_sources.each do |evidence_source| %>
       <tr>
-        <td><%= evidence_source.bib_ref %></td>
+        <td><%= evidence_source.page_numbers %></td>
+        <td><%= evidence_source.DOI %></td>
+        <td><%= evidence_source.publisher %></td>
+        <td><%= evidence_source.journal_book %></td>
+        <td><%= evidence_source.source %></td>
+        <td><%= evidence_source.author %></td>  
+        <td><%= evidence_source.title %></td>
+        <td><%= evidence_source.rating %></td>
         <td><%= evidence_source.research_level %></td>
         <td><%= evidence_source.insertTime %></td>
         <td><%= link_to 'Show', evidence_source %></td>

@@ -11,18 +11,47 @@ User.create!(name:  "Example User",
              password_confirmation: "foobar",
              admin: true,
              activated: true,
+             searcher_role: true,
+             administrator_role: true,
+             analyst_role: true,
+             moderator_role: true,
              activated_at: Time.zone.now)             
 
 99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
+  bool_searcher_role = false
+  bool_administrator_role = false
+  bool_analyst_role = false
+  bool_moderator_role = false  
+  
+  
+#   this part is for different role  
+  if (n>0 && n<25) 
+    bool_searcher_role = true      
+  end
+  if (n>=25 && n<50) 
+    bool_administrator_role = true      
+  end
+  if (n>=50 && n<75) 
+    bool_analyst_role = true      
+  end
+  if (n>=75 && n<99) 
+    bool_moderator_role = true      
+  end
+#   this part is for different role    
+  
   User.create!(name:  name,
                email: email,
                password:              password,
                password_confirmation: password,
-              activated: true,
-              activated_at: Time.zone.now)               
+               activated: true,
+                searcher_role: bool_searcher_role,
+                administrator_role: bool_administrator_role,
+                analyst_role: bool_analyst_role,
+                moderator_role: bool_moderator_role,             
+               activated_at: Time.zone.now)               
 end
 
 users = User.order(:created_at).take(6)
@@ -31,6 +60,8 @@ users = User.order(:created_at).take(6)
   users.each { |user| user.microposts.create!(content: content) }
 end
 
+
+
 # Following relationships
 users = User.all
 user  = users.first
@@ -38,3 +69,32 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+
+99.times do |n|
+  EvidenceSource.create!(
+                research_level:           Faker::Number.digit,
+                insertTime:               Time.zone.now,
+                created_at:               Time.zone.now,
+                updated_at:               Time.zone.now,             
+                rating:                   Faker::Number.digit,
+                title:                    Faker::Commerce.department(5),
+                author:                   Faker::Name.name,
+                year:                     2015,
+                source:                   Faker::Company.name,
+                journal_book:             Faker::Company.name,
+                publisher:                Faker::Name.name,
+                DOI:                      Faker::PhoneNumber.phone_number,
+                number:                   Faker::Number.digit,
+                volume:                   Faker::Number.digit,
+                page_numbers:             Faker::Number.digit)               
+end
+
+# Following for latest news
+users_for_news = User.all
+50.times do
+  content = Faker::Lorem.sentence(5)
+  y = Random.rand(90)
+  #puts y
+  users_for_news.each { |this_user| this_user.received_news.create!(content: content,  sender_id:  y, receiver_id:  User.all.take(1).first.id, read: true) }
+end

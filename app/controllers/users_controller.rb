@@ -3,8 +3,14 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]  
   before_action :admin_user,     only: :destroy
   
-  
-    
+
+  def usernews
+    @title = "My news"
+    @user  = User.find(params[:id])
+    @allMyNews = @user.received_news.where(read = false).paginate(page: params[:page])
+    render 'show_allMyNews'
+  end
+
   def following
     @title = "Following"
     @user  = User.find(params[:id])

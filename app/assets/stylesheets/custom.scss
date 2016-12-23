@@ -318,6 +318,30 @@ input {
   }
 }
 
+.lastArticlesNew {
+  th{
+   text-align:center;
+  }
+  td{
+   text-align:center;
+  }
+}
+
+.UserNews {
+  text-align:center;
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  } 
+  span {
+  font-weight:bold;
+  margin-bottom: 3px;
+  line-height: 1;
+  }
+}
+
 aside {
   textarea {
     height: 100px;
@@ -403,4 +427,10 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+
+.signupbutton
+{
+  margin-left:100px;  
 }

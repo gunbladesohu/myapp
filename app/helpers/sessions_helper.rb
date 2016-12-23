@@ -32,6 +32,39 @@ module SessionsHelper
     !current_user.nil?
   end  
 
+  def as_seacher?
+    if !current_user.nil?
+      return current_user.searcher_role
+    else
+      return false;
+    end
+  end  
+
+  def as_moderator?
+    if !current_user.nil?
+      return current_user.moderator_role
+    else
+      return false;
+    end
+  end 
+
+  def as_analyst?
+    if !current_user.nil?
+      return current_user.analyst_role
+    else
+      return false;
+    end
+  end 
+  
+  def as_administrator?
+    if !current_user.nil?
+      return current_user.administrator_role
+    else
+      return false;
+    end
+  end 
+
+  
   def forget(user)
     user.forget
     cookies.delete(:user_id)

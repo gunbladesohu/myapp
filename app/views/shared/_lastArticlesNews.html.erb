@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<% value =yield(:newstype)%>
+<% size =value.length%>  
+<% if (value.eql?('lasthigh')) %>
+  <%sorted = @evidence_sources_last_ten%>
+<h2>lastest Highest Rating articles</h2>  
+<%end%>
+
+<% else if  (value[size-8, size]).eql?('last_ten') %>
+  <%sorted = @evidence_sources_last_highest%>
+  <h2>lastest ten articles</h2>
+<%end%> 
+
+
+
+
+<table align="center">
+  <thead>
+    <tr>
+        <th>title</th>
+        <th>author</th>
+        <!--<th>research_level</th>-->
+        <th>rating</th> 
+        <th>year</th>
+        <th>source</th>
+        <!--<th>journal_book</th>-->
+        <!--<th>publisher</th>-->
+        <!--<th style="display:none;">DOI</th>-->
+        <!--<th style="display:none;">number</th>-->
+        <!--<th style="display:none;">volume</th>-->
+        <!--<th style="display:none;">page_numbers</th>-->
+        <!--<th style="display:none;">insertTime</th>-->
+        <!--<th style="display:none;">updated_at</th>-->
+    </tr>
+  </thead>
+
+   
+    
+
+  <tbody>
+
+      <% sorted.each do |evidence_source| %>
+        <tr>
+          <td><%= evidence_source.title %></td>
+          <td><%= evidence_source.author %></td>
+          <!--<td><%= evidence_source.research_level %></td>-->
+          <td><%= evidence_source.rating %></td>
+          <td><%= evidence_source.year %></td>
+          <td><%= evidence_source.source %></td>
+          <!--<td><%= evidence_source.journal_book %></td>-->
+          <!--<td><%= evidence_source.publisher %></td>-->
+          <!--<td style="display:none;"><%= evidence_source.DOI %></td>-->
+          <!--<td style="display:none;"><%= evidence_source.number %></td>-->
+          <!--<td style="display:none;"><%= evidence_source.volume %></td>-->
+          <!--<td style="display:none;"><%= evidence_source.page_numbers %></td>-->
+          <!--<td style="display:none;"><%= evidence_source.insertTime %></td>-->
+          <!--<td style="display:none;"><%= evidence_source.updated_at %></td>-->
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
+<br>

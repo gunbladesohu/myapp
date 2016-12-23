@@ -1,3 +1,11 @@
 sudo service postgresql start
+sudo sudo -u postgres psql
 example@railstutorial.org
 foobar
+
+# Following for latest news
+users_for_news = User.all
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users_for_news.each { |this_user| this_user.received_news.create!(content: content, receiver:  User.all.take(1).first.id, read: false) }
+end

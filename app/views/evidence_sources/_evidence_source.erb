@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>lastest 10 articles</h1>
+
+<table>
+  <thead>
+    <tr>
+        <th title></th>
+        <th author></th>
+        <th>research_level</th>
+        <th rating></th> 
+        <th year></th>
+        <th source></th>
+        <th journal_book></th>
+        <th publisher></th>
+        <th DOI></th>
+        <th number></th>
+        <th volume></th>
+        <th page_numbers></th>
+        <th>insertTime</th>
+        <th>updated_at</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evidence_sources.each do |confidence_rating| %>
+      <tr>
+        <td><%= evidence_source.title %></td>
+        <td><%= evidence_source.author %></td>
+        <td><%= evidence_source.research_level %></td>
+        <td><%= evidence_source.rating %></td>
+        <td><%= evidence_source.year %></td>
+        <td><%= evidence_source.source %></td>
+        <td><%= evidence_source.journal_book %></td>
+        <td><%= evidence_source.publisher %></td>
+        <td><%= evidence_source.DOI %></td>
+        <td><%= evidence_source.number %></td>
+        <td><%= evidence_source.volume %></td>
+        <td><%= evidence_source.page_numbers %></td>
+        <td><%= evidence_source.insertTime %></td>
+        <td><%= evidence_source.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Confidence Rating', new_confidence_rating_path %>

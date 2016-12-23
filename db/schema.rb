@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209013825) do
+ActiveRecord::Schema.define(version: 20161223105359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,11 +48,22 @@ ActiveRecord::Schema.define(version: 20161209013825) do
   end
 
   create_table "evidence_sources", force: :cascade do |t|
-    t.string   "bib_ref"
     t.string   "research_level"
     t.datetime "insertTime"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "rating"
+    t.string   "title"
+    t.string   "author"
+    t.integer  "year"
+    t.string   "source"
+    t.string   "journal_book"
+    t.string   "publisher"
+    t.string   "DOI"
+    t.integer  "number"
+    t.integer  "volume"
+    t.integer  "page_numbers"
+    t.boolean  "isPassed"
   end
 
   create_table "method_sdms", force: :cascade do |t|
@@ -101,11 +112,28 @@ ActiveRecord::Schema.define(version: 20161209013825) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "search_queries", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_search_queries_on_user_id", using: :btree
+  end
+
+  create_table "user_news", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "read"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin"
@@ -114,8 +142,13 @@ ActiveRecord::Schema.define(version: 20161209013825) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.boolean  "searcher_role"
+    t.boolean  "administrator_role"
+    t.boolean  "analyst_role"
+    t.boolean  "moderator_role"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
   add_foreign_key "microposts", "users"
+  add_foreign_key "search_queries", "users"
 end

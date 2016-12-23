@@ -1,0 +1,15 @@
+<% if (user_news.read == false)%>
+  <li>
+    <span>Sender:</span>
+    <%= user_news.sender.name %>
+    <span>Title:</span>
+    <%= link_to user_news.content.first(10),   about_path %>
+    <span>Update time:</span>
+    <%=  user_news.created_at %>
+    <%  if current_user?(user_news.receiver) %>
+      | <%= link_to "delete", user_news, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+    <% end %>
+  </li>
+<% end %>  
+

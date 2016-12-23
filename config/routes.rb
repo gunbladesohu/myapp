@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -27,13 +29,15 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :following, :followers
+      get :usernews
     end
   end  
   
   resources :account_activations, only: [:edit]  
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
-  resources :relationships,       only: [:create, :destroy]  
+  resources :relationships,       only: [:create, :destroy]
+  resources :user_news,            only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
    root 'static_pages#home'
 end

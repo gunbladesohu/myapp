@@ -11,7 +11,14 @@ class StaticPagesController < ApplicationController
       logger.info "Processing the request..."    
       logger.info "Processing the request..."      
       logger.info @feed_items          
+      
+      @title = "My news"
+      @user  = current_user
+      @allMyNews = @user.received_news.paginate(page: params[:page])
+
     end
+      @evidence_sources_last_ten = last_ten_evidence_itmes
+      @evidence_sources_last_highest = lasthighest_items
   end
 
   def help
