@@ -8,8 +8,6 @@
       <th>Confidence level</th>
       <th>Reason</th>
       <th>Rater</th>
-      <th>Inserttime</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -19,7 +17,6 @@
         <td><%= confidence_rating.confidence_level %></td>
         <td><%= confidence_rating.reason %></td>
         <td><%= confidence_rating.rater %></td>
-        <td><%= confidence_rating.insertTime %></td>
         <td><%= link_to 'Show', confidence_rating %></td>
         <td><%= link_to 'Edit', edit_confidence_rating_path(confidence_rating) %></td>
         <td><%= link_to 'Destroy', confidence_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>

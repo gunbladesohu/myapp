@@ -4,7 +4,6 @@ class CreateConfidenceRatings < ActiveRecord::Migration[5.0]
       t.string :confidence_level
       t.string :reason
       t.string :rater
-      t.datetime :insertTime
 
       t.timestamps
     end

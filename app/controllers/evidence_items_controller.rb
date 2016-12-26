@@ -69,6 +69,6 @@ class EvidenceItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evidence_item_params
-      params.require(:evidence_item).permit(:context_how, :context_why, :context_who, :context_what, :context_where, :context_when, :benefit, :result, :insertTime)
+      params.require(:evidence_item).permit(:context_how, :context_why, :context_who, :context_what, :context_where, :context_when, :benefit, :result)
     end
 end

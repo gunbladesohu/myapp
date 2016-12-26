@@ -45,7 +45,6 @@
   <%= @evidence_source.title %>
 </p>
 
-
 <p>
   <strong>rating:</strong>
   <%= @evidence_source.rating %>
@@ -56,10 +55,12 @@
   <%= @evidence_source.research_level %>
 </p>
 
-<p>
-  <strong>Inserttime:</strong>
-  <%= @evidence_source.insertTime %>
-</p>
+
 
 <%= link_to 'Edit', edit_evidence_source_path(@evidence_source) %> |
-<%= link_to 'Back', evidence_sources_path %>
+<%= link_to 'Back', session[:forwarding_url] || evidence_sources_path %>
+<% session.delete(:forwarding_url) %>
+
+    
+
+

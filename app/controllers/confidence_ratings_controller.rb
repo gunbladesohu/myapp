@@ -69,6 +69,6 @@ class ConfidenceRatingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def confidence_rating_params
-      params.require(:confidence_rating).permit(:confidence_level, :reason, :rater, :insertTime)
+      params.require(:confidence_rating).permit(:confidence_level, :reason, :rater)
     end
 end

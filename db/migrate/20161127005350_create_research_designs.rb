@@ -5,7 +5,6 @@ class CreateResearchDesigns < ActiveRecord::Migration[5.0]
       t.string :method
       t.string :metrics
       t.string :participants
-      t.datetime :insertTime
 
       t.timestamps
     end

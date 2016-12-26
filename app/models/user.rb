@@ -16,12 +16,12 @@ class User < ApplicationRecord
                                    foreign_key: "sender_id",
                                    dependent:   :destroy    
                                    
-  has_many :evidence_source, class_name:  "EvidenceSource",
-                                  foreign_key: "submitter",
+  has_many :submitted_evidence_source, class_name:  "EvidenceSource",
+                                  foreign_key: "submitter_id",
                                   dependent:   :destroy
 
-  has_many :evidence_source, class_name:  "EvidenceSource",
-                                  foreign_key: "moderator",
+  has_many :moderatted_evidence_source, class_name:  "EvidenceSource",
+                                  foreign_key: "moderator_id",
                                   dependent:   :destroy
 
 
@@ -42,6 +42,7 @@ class User < ApplicationRecord
                     has_secure_password
 
  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true 
+ 
   # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -55,6 +56,17 @@ class User < ApplicationRecord
                      WHERE  follower_id = :user_id"
     Micropost.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
+  end
+
+  def User.findModerator
+    moderators = Array.new
+    users = User.where("moderator_role = true") 
+    
+    users.each do |useritem|
+      moderators.push([useritem.name, useritem.id]) 
+      
+    end    
+    return moderators
   end
 
   # Returns a random token.
@@ -130,5 +142,10 @@ class User < ApplicationRecord
     following.include?(other_user)
   end    
 
+  def submit(evidence_source)
+    submitted_evidence_source.create(evidence_source)
+  end
+ 
+  Moderator_types = findModerator() 
  
 end

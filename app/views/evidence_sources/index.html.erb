@@ -15,7 +15,6 @@
       <th>title</th>
       <th>rating</th>
       <th>research_level</th>
-      <th>insertTime</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -32,7 +31,6 @@
         <td><%= evidence_source.title %></td>
         <td><%= evidence_source.rating %></td>
         <td><%= evidence_source.research_level %></td>
-        <td><%= evidence_source.insertTime %></td>
         <td><%= link_to 'Show', evidence_source %></td>
         <td><%= link_to 'Edit', edit_evidence_source_path(evidence_source) %></td>
         <td><%= link_to 'Destroy', evidence_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>

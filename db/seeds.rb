@@ -72,27 +72,42 @@ followers.each { |follower| follower.follow(user) }
 
 
 99.times do |n|
+
   EvidenceSource.create!(
                 research_level:           Faker::Number.digit,
-                insertTime:               Time.zone.now,
                 created_at:               Time.zone.now,
                 updated_at:               Time.zone.now,             
                 rating:                   Faker::Number.digit,
                 title:                    Faker::Commerce.department(5),
                 author:                   Faker::Name.name,
-                year:                     2015,
+                year:                     Date.new(2015,1,1),
                 source:                   Faker::Company.name,
                 journal_book:             Faker::Company.name,
                 publisher:                Faker::Name.name,
                 DOI:                      Faker::PhoneNumber.phone_number,
                 number:                   Faker::Number.digit,
                 volume:                   Faker::Number.digit,
-                page_numbers:             Faker::Number.digit)               
+                page_numbers:             Faker::Number.digit,
+                submitter_id:             Random.rand(90),
+                moderator_id:             Random.rand(90))               
+end
+
+# Following for evidence_item
+99.times do |n|
+  EvidenceItem.create!(
+                context_how: Faker::Name.name,
+                context_why: Faker::Name.name,
+                context_who: Faker::Name.name,
+                context_what: Faker::Name.name,
+                context_where: Faker::Name.name,
+                context_when: Faker::Number.digit,
+                benefit:      Faker::Number.digit,
+                result:       Faker::Number.digit)
 end
 
 # Following for latest news
 users_for_news = User.all
-50.times do
+3.times do
   content = Faker::Lorem.sentence(5)
   y = Random.rand(90)
   #puts y

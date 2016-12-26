@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
         redirect_to login_url
       end
     end
+    
+    # Confirms a logged-in user.
+    def continue_add
+      store_location
+    end    
 end

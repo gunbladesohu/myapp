@@ -9,7 +9,6 @@ class CreateEvidenceItems < ActiveRecord::Migration[5.0]
       t.string :context_when
       t.string :benefit
       t.string :result
-      t.datetime :insertTime
 
       t.timestamps
     end

@@ -69,6 +69,6 @@ class CredibilityRatingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def credibility_rating_params
-      params.require(:credibility_rating).permit(:credibility_level, :reason, :rater, :insertTime)
+      params.require(:credibility_rating).permit(:credibility_level, :reason, :rater)
     end
 end

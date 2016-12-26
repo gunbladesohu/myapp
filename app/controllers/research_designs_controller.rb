@@ -69,6 +69,6 @@ class ResearchDesignsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def research_design_params
-      params.require(:research_design).permit(:question, :method, :metrics, :participants, :insertTime)
+      params.require(:research_design).permit(:question, :method, :metrics, :participants)
     end
 end

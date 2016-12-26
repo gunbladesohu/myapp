@@ -8,7 +8,6 @@
       <th>Credibility level</th>
       <th>Reason</th>
       <th>Rater</th>
-      <th>Inserttime</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +18,6 @@
         <td><%= credibility_rating.credibility_level %></td>
         <td><%= credibility_rating.reason %></td>
         <td><%= credibility_rating.rater %></td>
-        <td><%= credibility_rating.insertTime %></td>
         <td><%= link_to 'Show', credibility_rating %></td>
         <td><%= link_to 'Edit', edit_credibility_rating_path(credibility_rating) %></td>
         <td><%= link_to 'Destroy', credibility_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>

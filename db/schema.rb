@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223105359) do
+ActiveRecord::Schema.define(version: 20161226052058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20161223105359) do
     t.string   "confidence_level"
     t.string   "reason"
     t.string   "rater"
-    t.datetime "insertTime"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -28,7 +27,6 @@ ActiveRecord::Schema.define(version: 20161223105359) do
     t.string   "credibility_level"
     t.string   "reason"
     t.string   "rater"
-    t.datetime "insertTime"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -42,14 +40,12 @@ ActiveRecord::Schema.define(version: 20161223105359) do
     t.string   "context_when"
     t.string   "benefit"
     t.string   "result"
-    t.datetime "insertTime"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   create_table "evidence_sources", force: :cascade do |t|
     t.string   "research_level"
-    t.datetime "insertTime"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "rating"
@@ -64,12 +60,13 @@ ActiveRecord::Schema.define(version: 20161223105359) do
     t.integer  "volume"
     t.integer  "page_numbers"
     t.boolean  "isPassed"
+    t.integer  "submitter_id"
+    t.integer  "moderator_id"
   end
 
   create_table "method_sdms", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "insertTime"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -77,7 +74,6 @@ ActiveRecord::Schema.define(version: 20161223105359) do
   create_table "methodologies", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "insertTime"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -107,7 +103,6 @@ ActiveRecord::Schema.define(version: 20161223105359) do
     t.string   "method"
     t.string   "metrics"
     t.string   "participants"
-    t.datetime "insertTime"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

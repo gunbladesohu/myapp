@@ -69,6 +69,6 @@ class MethodologiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def methodology_params
-      params.require(:methodology).permit(:name, :description, :insertTime)
+      params.require(:methodology).permit(:name, :description)
     end
 end

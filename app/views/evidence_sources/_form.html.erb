@@ -48,7 +48,7 @@
 
   <div class="field">
     <%= f.label :year %>
-    <%= f.text_field :year %>
+    <%= f.date_select :year, start_year: 1995, discard_day:true, discard_month:true%>
   </div>
 
   <div class="field">
@@ -72,11 +72,22 @@
   </div>
 
   <div class="field">
-    <%= f.label :insertTime %>
-    <%= f.datetime_select :insertTime %>
+    <%= f.label :Moderator %>
+    <%= f.select :moderator_id, User::Moderator_types, :prompt => "Select a payment method",:selected => User::Moderator_types[0] %>
   </div>
+
+  <div class="field">
+    <%= f.label :Submitter %>
+    <p>
+    <%= f.label  :Submitter,evidence_source.submitter_name%>
+    </p>
+  </div>
+
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+

@@ -4,7 +4,6 @@ class CreateCredibilityRatings < ActiveRecord::Migration[5.0]
       t.string :credibility_level
       t.string :reason
       t.string :rater
-      t.datetime :insertTime
 
       t.timestamps
     end
