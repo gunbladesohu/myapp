@@ -123,8 +123,8 @@ end
                 volume:                   Faker::Number.digit,
                 page_numbers:             Faker::Number.digit,
                 is_passed:                 value_isPassed,
-                submitter_id:             Random.rand(90),
-                moderator_id:             Random.rand(90))               
+                submitter_id:             1+Random.rand(90),
+                moderator_id:             1+Random.rand(90))               
 end
 
 # Following for evidence_item
