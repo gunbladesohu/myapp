@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161225093539) do
+ActiveRecord::Schema.define(version: 20161226052058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20161225093539) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "rating"
-    t.string   "author"
-    t.date     "year_number"
     t.string   "title"
+    t.string   "author"
+    t.integer  "year"
     t.string   "source"
     t.string   "journal_book"
     t.string   "publisher"
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20161225093539) do
     t.integer  "number"
     t.integer  "volume"
     t.integer  "page_numbers"
-    t.integer  "is_passed"
-    t.integer  "submitter_id",   null: false
+    t.boolean  "isPassed"
+    t.integer  "submitter_id"
     t.integer  "moderator_id"
   end
 

@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  get    '/moderate',   to: 'moderate#listModerateTask'
+  put    '/moderate/accept',   to: 'moderate#accept'
+  put    '/moderate/refuse',   to: 'moderate#refuse'
+  
   resources :research_designs
   resources :confidence_ratings
   resources :credibility_ratings
@@ -37,7 +41,7 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
-  resources :user_news,            only: [:create, :destroy]
+  resources :user_news,           only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
    root 'static_pages#home'
 end

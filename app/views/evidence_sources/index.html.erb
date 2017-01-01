@@ -2,43 +2,71 @@
 
 <h1>Evidence Sources</h1>
 
-<table>
+<table class="pretty">
   <thead>
     <tr>
-      <th>page_numbers</th>
-      <th>DOI</th>
-      <th>publisher</th>
-      <th>journal_book</th>
-      <th>publisher</th>
-      <th>source</th>
-      <th>author</th>
-      <th>title</th>
-      <th>rating</th>
-      <th>research_level</th>
-      <th colspan="3"></th>
+      <th><%= sortable "SN" %></th>
+      <th><%= sortable "is_passed", "Accept"%></th>
+      <th><%= sortable "journal_book"%></th>
+      <th><%= sortable "publisher"%></th>
+      <th><%= sortable "source"%></th>
+      <th><%= sortable "author"%></th>
+      <th><%= sortable "title"%></th>
+      <th><%= sortable "rating"%></th>
+      <th><%= sortable "research_level"%></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
+    <% @serial_no = 0  %>        
     <% @evidence_sources.each do |evidence_source| %>
+      <% @serial_no = @serial_no + 1  %>    
       <tr>
-        <td><%= evidence_source.page_numbers %></td>
-        <td><%= evidence_source.DOI %></td>
-        <td><%= evidence_source.publisher %></td>
+        <td> <%= @serial_no %> </td>
+        
+        <% if evidence_source.is_passed == 0%>
+        <td>undetermind</td>
+        <% elsif evidence_source.is_passed == 1 %>
+        <td>passed</td>
+        <% else evidence_source.is_passed == 2 %>
+        <td>refused</td>        
+        <%end%>
+        
+        
         <td><%= evidence_source.journal_book %></td>
+        <td><%= evidence_source.publisher %></td>
         <td><%= evidence_source.source %></td>
         <td><%= evidence_source.author %></td>  
         <td><%= evidence_source.title %></td>
         <td><%= evidence_source.rating %></td>
         <td><%= evidence_source.research_level %></td>
         <td><%= link_to 'Show', evidence_source %></td>
-        <td><%= link_to 'Edit', edit_evidence_source_path(evidence_source) %></td>
-        <td><%= link_to 'Destroy', evidence_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ 
+        <%if @tableType == "Index"%>
+          <%if current_user.admin?%>
+            <td><%= link_to 'Edit', edit_evidence_source_path(evidence_source) %></td>
+            <td><%= link_to 'Destroy', evidence_source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%end%>
+        <%else%>
+          <%if current_user?(evidence_source.moderator)%>
+            <td> <%= link_to "Accept", {controller: "moderate", action: "accept", evidence_source_id: evidence_source.id}, method: :put, 
+                                     data: { confirm: "You sure?" } %></td>
+            <td><%= link_to "Refuse", {controller: "moderate", action: "refuse", evidence_source_id: evidence_source.id}, method: :put, 
+                                     data: { confirm: "You sure?" } %></td>
+          <%end%>
+        <%end%>  
+
+        
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= will_paginate @evidence_sources %>
 <br>
 
 <%= link_to 'New Evidence Source', new_evidence_source_path %>
+
+        

@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include EvidenceSourcesHelper
 
+
+  def sort_column
+    EvidenceSource.column_names.include?(params[:sort]) ? params[:sort] : "id"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+  
   private
 
     # Confirms a logged-in user.

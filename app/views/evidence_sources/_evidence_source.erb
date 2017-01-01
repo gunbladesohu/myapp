@@ -1,0 +1,34 @@
+<li id="evidence source id-<%= evidence_source.id %>">
+  <%= link_to evidence_source.title, "aa" %>
+  <span class="author"><%= link_to evidence_source.author, '#' %></span>
+  <span class="research_level"><%= link_to evidence_source.research_level, '#' %></span>
+  <span class="rating"><%= link_to evidence_source.rating, '#' %></span>
+  <span class="year"><%= link_to evidence_source.year_number, '#' %></span>
+  <span class="source"><%= link_to evidence_source.source, '#' %></span>  
+  <span class="journal_book"><%= link_to evidence_source.journal_book, '#' %></span>
+  <span class="publisher"><%= link_to evidence_source.publisher, '#' %></span>
+  <span class="DOI"><%= link_to evidence_source.DOI, '#' %></span>
+  <span class="number"><%= link_to evidence_source.number, '#' %></span>
+  <span class="volume"><%= link_to evidence_source.volume, '#' %></span>
+  <span class="page_numbers"><%= link_to evidence_source.page_numbers, '#' %></span>
+  <span class="updated_at"><%= link_to evidence_source.updated_at, '#' %></span>
+
+
+
+
+  <% if current_user?(evidence_source.moderator) %>
+    <%evidence_source.is_passed = true %>
+
+    <%= link_to "accept", {controller: "moderate", action: "accept", evidence_source_id: evidence_source.id}, method: :put, 
+                                     data: { confirm: "You sure?" } %>
+                                     
+
+
+    <%= link_to "refuse", {controller: "moderate", action: "refuse", evidence_source_id: evidence_source.id}, method: :put, 
+                                     data: { confirm: "You sure?" } %>
+                                     
+  <% end %>
+  
+  
+</li>
+

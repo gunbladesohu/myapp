@@ -71,7 +71,41 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 
+
+#Following for Evidence_sources
+20.times do |n|
+  EvidenceSource.create!(
+                research_level:           Faker::Number.digit,
+                created_at:               Time.zone.now,
+                updated_at:               Time.zone.now,             
+                rating:                   Faker::Number.digit,
+                title:                    Faker::Commerce.department(5),
+                author:                   Faker::Name.name,
+                year_number:                     Date.new(2015,1,1),
+                source:                   Faker::Company.name,
+                journal_book:             Faker::Company.name,
+                publisher:                Faker::Name.name,
+                DOI:                      Faker::PhoneNumber.phone_number,
+                number:                   Faker::Number.digit,
+                volume:                   Faker::Number.digit,
+                page_numbers:             Faker::Number.digit,
+                is_passed:                0,
+                submitter_id:             1,
+                moderator_id:             1)   
+end                
+                
+
 99.times do |n|
+
+  if (n>0 && n<25) 
+    value_isPassed = nil      
+  end
+  if (n>=25 && n<50) 
+    value_isPassed = true      
+  end
+  if (n>=50 && n<75) 
+    value_isPassed = false      
+  end
 
   EvidenceSource.create!(
                 research_level:           Faker::Number.digit,
@@ -80,7 +114,7 @@ followers.each { |follower| follower.follow(user) }
                 rating:                   Faker::Number.digit,
                 title:                    Faker::Commerce.department(5),
                 author:                   Faker::Name.name,
-                year:                     Date.new(2015,1,1),
+                year_number:                     Date.new(2015,1,1),
                 source:                   Faker::Company.name,
                 journal_book:             Faker::Company.name,
                 publisher:                Faker::Name.name,
@@ -88,6 +122,7 @@ followers.each { |follower| follower.follow(user) }
                 number:                   Faker::Number.digit,
                 volume:                   Faker::Number.digit,
                 page_numbers:             Faker::Number.digit,
+                is_passed:                 value_isPassed,
                 submitter_id:             Random.rand(90),
                 moderator_id:             Random.rand(90))               
 end

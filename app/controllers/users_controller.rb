@@ -97,12 +97,13 @@ class UsersController < ApplicationController
     end
 
       # Confirms an admin user.
+    def moderate_user
+      redirect_to(root_url) unless current_user.moderator_role?
+    end
+
+      # Confirms an admin user.
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
-    
-  
-    
-    
 end
 

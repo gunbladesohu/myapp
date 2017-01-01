@@ -1,6 +1,4 @@
 class EvidenceSourcesController < ApplicationController
-  helper_method :sort_column, :sort_direction
-  
   before_action :set_evidence_source, only: [:show, :edit, :update, :destroy]
   before_action :correct_user,   only: [:index] 
   before_action :admin_user,   only: [:edit, :update, :destroy]   
@@ -8,10 +6,10 @@ class EvidenceSourcesController < ApplicationController
   # GET /evidence_sources
   # GET /evidence_sources.json
   def index
-    @evidence_sources =  EvidenceSource.order(sort_column + " " + sort_direction).paginate(page: params[:page])
-    @tableType = "Index"
+    @evidence_sources = EvidenceSource.all
+    @serial_no = 0
   end
-  
+
   # GET /evidence_sources/1
   # GET /evidence_sources/1.json
   def show
@@ -107,7 +105,6 @@ class EvidenceSourcesController < ApplicationController
                                    :password_confirmation)
     end  
     
-
 
 
     

@@ -10,7 +10,7 @@
           <li><%= link_to "new", new_evidence_source_path %></li>
   
           <% if as_moderator? %>
-            <li><%= link_to "Moderate", edit_user_path(current_user) %></li>
+            <li><%= link_to "Moderate", moderate_path %></li>
           <% end %>
           
           <% if as_seacher? %>
