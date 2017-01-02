@@ -81,7 +81,7 @@ followers.each { |follower| follower.follow(user) }
                 rating:                   Faker::Number.digit,
                 title:                    Faker::Commerce.department(5),
                 author:                   Faker::Name.name,
-                year_number:                     Date.new(2015,1,1),
+                year_number:              Date.new(2015,1,1),
                 source:                   Faker::Company.name,
                 journal_book:             Faker::Company.name,
                 publisher:                Faker::Name.name,

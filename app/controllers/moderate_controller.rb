@@ -2,6 +2,7 @@ class ModerateController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_action :moderate_user,   only: [:listModerateTask]  
   before_action :moderate_user,   only: :destroy
+  before_action :correct_user, only: [:accept, :refuse]
   
   def listModerateTask
     @user = current_user
@@ -14,16 +15,12 @@ class ModerateController < ApplicationController
   end
 
   def accept
-    @user = current_user
-    @evidence_sources = EvidenceSource.find_by(id: params[:evidence_source_id])   
     @evidence_sources.is_passed = 1
     @evidence_sources.save
     redirect_to moderate_path    
   end
   
   def refuse
-    @user = current_user
-    @evidence_sources = EvidenceSource.find_by(id: params[:evidence_source_id])   
     @evidence_sources.is_passed = 2
     @evidence_sources.save
     redirect_to moderate_path    
@@ -36,5 +33,16 @@ private
   def moderate_user
     redirect_to(root_url) unless current_user.moderator_role?
   end
+  
+  def correct_user
+    @evidence_sources = current_user.moderatted_evidence_source.find_by(id: params[:evidence_source_id])
+    redirect_to root_url if @evidence_sources.nil?
+  end
+
+  # Follows a user.
+  def notice_submitter(evidence_source_item)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
 end
 
