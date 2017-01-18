@@ -1,0 +1,48 @@
+<h1>Evidence_items</h1>
+<%= search_form_for @search, url: search_index_path, method: :post do |f| %>
+    <%= f.condition_fields do |c| %>
+        <%= render "condition_fields", f: c %>
+    <% end %>
+    <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+    <div class="field">
+      Sort:
+      <%= f.sort_fields do |s| %>
+          <%= s.sort_select %>
+      <% end %>
+    </div>
+    <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
+<table id="Evidence_items">
+  <tr>
+    <th><%= sort_link @search, :context_how, "how" %></th>
+    <th><%= sort_link @search, :context_why, "why" %></th>
+    <th><%= sort_link @search, :context_who, "who" %></th>
+    <th><%= sort_link @search, :context_what, "what" %></th>
+    <th><%= sort_link @search, :context_where, "where" %></th>
+    <th><%= sort_link @search, :context_when, "when" %></th>
+    <th><%= sort_link @search, :benefit, "benefit" %></th>
+    <th><%= sort_link @search, :result, "result" %></th>
+    <th><%= sort_link @search, :who, "who" %></th>
+    <th><%= sort_link @search, :created_at, "created_at" %></th>
+    <th><%= sort_link @search, :updated_at, "updated_at" %></th>
+    <th><%= sort_link @search, :evidence_source_id, "evidence_source_id" %></th>
+
+  </tr>
+  <% @products.each do |evidence_item| %>
+      <tr>
+        <td><%= link_to(evidence_item.id, evidence_item) %></td>
+        <td><%= evidence_item.context_how %></td>
+        <td><%= evidence_item.context_why %></td>
+        <td><%= evidence_item.context_who %></td>
+        <td><%= evidence_item.context_what %></td>
+        <td><%= evidence_item.context_where %></td>
+        <td><%= evidence_item.context_when %></td>
+        <td><%= evidence_item.benefit %></td>
+        <td><%= evidence_item.result %></td>
+        <td><%= evidence_item.created_at %></td>
+        <td><%= evidence_item.updated_at %></td>
+        <td><%= evidence_item.evidence_source_id %></td>
+      </tr>
+  <% end %>
+</table>

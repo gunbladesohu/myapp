@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 source 'https://rubygems.org'
 
+gem 'ransack'
 gem 'faker',          '1.6.6'
 gem 'bcrypt',         '3.1.11'
 

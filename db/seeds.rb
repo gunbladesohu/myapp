@@ -127,17 +127,11 @@ end
                 moderator_id:             1+Random.rand(90))               
 end
 
-# Following for evidence_item
-99.times do |n|
-  EvidenceItem.create!(
-                context_how: Faker::Name.name,
-                context_why: Faker::Name.name,
-                context_who: Faker::Name.name,
-                context_what: Faker::Name.name,
-                context_where: Faker::Name.name,
-                context_when: Faker::Number.digit,
-                benefit:      Faker::Number.digit,
-                result:       Faker::Number.digit)
+
+# Following for evidence_itmes
+evidence_sources = EvidenceSource.all
+3.times do
+  evidence_sources.each { |this_evidence_source| this_evidence_source.evidence_items.create!(context_how: Faker::Name.name,  context_why: Faker::Name.name, context_who: Faker::Name.name, context_what: Faker::Name.name, context_where: Faker::Name.name, context_when: Faker::Number.digit, benefit: Faker::Number.digit, result: Faker::Number.digit) }
 end
 
 # Following for latest news

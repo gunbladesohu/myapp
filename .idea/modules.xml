@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../370-ransack/.idea/370-ransack.iml" filepath="$PROJECT_DIR$/../370-ransack/.idea/370-ransack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../SERLER_production/.idea/SERLER_production.iml" filepath="$PROJECT_DIR$/../SERLER_production/.idea/SERLER_production.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Serler_Stream2/.idea/Serler_Stream2.iml" filepath="$PROJECT_DIR$/../Serler_Stream2/.idea/Serler_Stream2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/myapp.iml" filepath="$PROJECT_DIR$/.idea/myapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ransack/.idea/ransack.iml" filepath="$PROJECT_DIR$/../ransack/.idea/ransack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../serler/.idea/serler.iml" filepath="$PROJECT_DIR$/../serler/.idea/serler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../370-ransack/store-after/.idea/store-after.iml" filepath="$PROJECT_DIR$/../370-ransack/store-after/.idea/store-after.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../370-ransack/store-before/.idea/store-before.iml" filepath="$PROJECT_DIR$/../370-ransack/store-before/.idea/store-before.iml" />
+    </modules>
+  </component>
+</project>

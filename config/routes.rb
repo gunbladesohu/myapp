@@ -21,12 +21,16 @@ Rails.application.routes.draw do
   get    '/moderate',   to: 'moderate#listModerateTask'
   put    '/moderate/accept',   to: 'moderate#accept'
   put    '/moderate/refuse',   to: 'moderate#refuse'
-  
+
+  get    '/moderate',   to: 'moderate#listModerateTask'
+
   resources :research_designs
   resources :confidence_ratings
   resources :credibility_ratings
   resources :evidence_sources
+
   resources :evidence_items
+
   resources :method_sdms
   resources :methodologies
   
@@ -35,7 +39,14 @@ Rails.application.routes.draw do
       get :following, :followers
       get :usernews
     end
-  end  
+  end
+
+#  resources :search, only: [:index] do
+#    collection { post :search, to: 'search#index' }
+#  end
+  post   '/search',   to: 'search#index'
+
+  resources :search, only: [:index]
   
   resources :account_activations, only: [:edit]  
   resources :password_resets,     only: [:new, :create, :edit, :update]
